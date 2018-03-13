@@ -1,0 +1,19 @@
+{
+  "name": "news-reviews",
+  "version": "1.0.0",
+  "description": "News and Opinions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boginis1/News-Reviews.git"
+  },
+  "author": "HZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boginis1/News-Reviews/issues"
+  },
+  "homepage": "https://github.com/boginis1/News-Reviews#readme"
+}
