@@ -31,9 +31,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/skiffnews";
 
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
+mongoose.connect(MONGODB_URI);
 
 
 var exphbs = require("express-handlebars");
