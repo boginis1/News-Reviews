@@ -5,7 +5,8 @@
 <ul>
   {{#each dbArticles}}
    <h5>{{headline}}</h5>
-   <p>{{link}}</p>
+   <a href="{{link}}">{{link}}</a>
     <p>{{summary}}</p>
+    <a class="waves-effect waves-light btn" id="save">Save Article</a>
   {{/each}}
 </ul>

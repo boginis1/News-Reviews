@@ -70,14 +70,48 @@ $(document).on("click", "#savenote", function() {
 });
 
 $(document).on("click", "#scraper", function() {
-    // Run a POST request to change the note, using what's entered in the inputs
-    $.ajax({
-        method: "GET",
-        url: "/scrape",
-    })
-    .then(function(data){
-        location.reload()
-        
-    })
-    
+            // Run a POST request to change the note, using what's entered in the inputs
+            $.ajax({
+                    method: "GET",
+                    url: "/scrape",
+                })
+                .then(function(data) {
+                    location.reload()
+
+                })
+
 })
+
+            function handleArticleSave() {
+                // This function is triggered when the user wants to save an article
+                // When we rendered the article initially, we attatched a javascript object containing the headline id
+                // to the element using the .data method. Here we retrieve that.
+                var thisId = $(this).attr("data-id");
+                var articleToSave = $(this).headline.data();
+                articleToSave.saved = true;
+                // Using a patch method to be semantic since this is an update to an existing record in our collection
+                $.ajax({
+                    method: "POST",
+                    url: "/saved" + thisId,
+                    data: articleToSave
+                }).then(function(data) {
+                    // If successful, mongoose will send back an object containing a key of "ok" with the value of 1
+                    // (which casts to 'true')
+                    if (data.ok) {
+                        // Run the initPage function again. This will reload the entire list of articles
+                        console.log("ok")
+                    }
+                });
+            }
+
+            $(document).on("click", "#save", function() {
+                // Run a POST request to change the note, using what's entered in the inputs
+                $.ajax({
+                        method: "GET",
+                        url: "/saved",
+                    })
+                    .then(function(data) {
+                        handleArticleSave()
+
+                    })
+            });
