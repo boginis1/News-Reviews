@@ -2,12 +2,20 @@
 
 <h3>Here are the your saved hotel articles</h3>
 
+<div class="articles">
+
 <ul>
   {{#each dbArticles}}
+  <div class="articles">
    <h5>{{headline}}</h5>
    <a href="{{link}}">{{link}}</a>
     <p>{{summary}}</p>
-    <a class="waves-effect waves-light btn" id="addNote">Add Note</a>
-    <a class="waves-effect waves-light btn" id="Delete">Delete</a>
+    <a class="waves-effect waves-light btn" data_id="{{_id}}" id="addNote">Add Note</a>
+    <a class="waves-effect waves-light btn" data_id="{{_id}}" id="Delete">Delete</a>
+    
   {{/each}}
 </ul>
+</div>
+<div class="notes"></div>
+</div>
+</div>
